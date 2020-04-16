@@ -2,7 +2,6 @@ package com.chriscorp.ecommerce.controller;
 
 
 import com.chriscorp.ecommerce.model.Product;
-import com.chriscorp.ecommerce.service.ProductService;
 import com.chriscorp.ecommerce.service.serviceImpl.ProductServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
