@@ -18,31 +18,26 @@ public class ProductController {
     private ProductServiceImpl productService;
 
     @GetMapping
-    @ResponseBody
     public List<Product> getAllProduct(){
         return productService.getAllProduct();
     }
 
     @GetMapping("/{id}")
-    @ResponseBody
     public Optional<Product> getProductById(@PathVariable(name = "id") long id){
         return productService.getProductById(id);
     }
 
     @DeleteMapping("/{id}")
-    @ResponseBody
     public void deleteProductById(@PathVariable(name = "id") long id){
         productService.deleteProductById(id);
     }
 
     @PostMapping
-    @ResponseBody
     public Product postProduct(@RequestBody Product product){
         return productService.postProduct(product);
     }
 
     @PutMapping("/{id}")
-    @ResponseBody
     public Product putProduct(@RequestBody Product product, @PathVariable(name = "id") long id) throws Exception {
         return productService.getProductById(id).map(newObj -> {
             newObj.setName(product.getName());
