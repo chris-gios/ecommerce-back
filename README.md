@@ -4,15 +4,20 @@ This project contains the backend of PerfilTic Dev Test
 
 ## Development server
 
-Run `./mvn clean install && java -jar target/ecommerce-0.0.1-SNAPSHOT.jar` for a dev environment. Navigate to `http://localhost:8080/`.
+Run `mvn clean install && java -jar target/ecommerce-0.0.1-SNAPSHOT.jar` for a dev environment. Navigate to `http://localhost:8080/`.
 
 ## Build
 
-Run `./mvn clean install` to build the project. 
+Run `mvn clean install` to build the project. 
 
 ## Run
 
 Run `java -jar target/ecommerce-0.0.1-SNAPSHOT.jar` to run the project. 
+
+
+## Stop
+
+press `Ctrl + c` to stop the project. 
 
 # Docker
 
