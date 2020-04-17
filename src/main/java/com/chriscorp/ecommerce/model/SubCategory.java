@@ -1,10 +1,12 @@
 package com.chriscorp.ecommerce.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
-import org.springframework.web.bind.annotation.GetMapping;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Data
 @Entity
@@ -17,5 +19,14 @@ public class SubCategory implements Serializable {
 
     @Column(name = "name")
     private String name;
+
+    @ManyToOne
+    @JoinColumn(name = "id_category")
+    @JsonBackReference
+    private Category category;
+
+    @OneToMany
+    @JsonIgnore
+    private List<Product> product;
 
 }

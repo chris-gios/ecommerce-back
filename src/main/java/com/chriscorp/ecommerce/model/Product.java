@@ -1,6 +1,7 @@
 package com.chriscorp.ecommerce.model;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -29,5 +30,10 @@ public class Product implements Serializable {
 
     @Column(name = "photo")
     private String photo;
+
+    @ManyToOne
+    @JoinColumn(name = "id_sub_category")
+    @JsonBackReference
+    private SubCategory subCategory;
 
 }
