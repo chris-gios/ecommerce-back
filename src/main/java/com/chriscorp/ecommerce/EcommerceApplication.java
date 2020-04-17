@@ -7,11 +7,19 @@ import com.chriscorp.ecommerce.model.User;
 import com.chriscorp.ecommerce.repository.CategoryRepository;
 import com.chriscorp.ecommerce.repository.ProductRepository;
 import com.chriscorp.ecommerce.repository.SubCategoryRepository;
+import com.chriscorp.ecommerce.secutiry.JWTAuthorization;
 import com.chriscorp.ecommerce.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 @SpringBootApplication
 public class EcommerceApplication implements CommandLineRunner {
@@ -31,6 +39,25 @@ public class EcommerceApplication implements CommandLineRunner {
 	public static void main(String[] args) {
 		SpringApplication.run(EcommerceApplication.class, args);
 	}
+
+	@EnableWebSecurity
+	@Configuration
+	class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+
+		@Override
+		protected void configure(HttpSecurity http) throws Exception {
+			http.csrf().disable()
+					.addFilterAfter(new JWTAuthorization(), UsernamePasswordAuthenticationFilter.class)
+					.authorizeRequests()
+					.antMatchers(HttpMethod.POST, "/user").permitAll().antMatchers("/h2-console/**")
+					.permitAll().antMatchers("/").permitAll()
+					.anyRequest().authenticated();
+			http.csrf().disable();
+			http.headers().frameOptions().disable();
+		}
+	}
+
+
 
 
 	@Override
