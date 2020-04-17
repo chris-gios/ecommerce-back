@@ -6,7 +6,6 @@ import com.chriscorp.ecommerce.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
@@ -15,20 +14,6 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserRepository userRepository;
-
-//    @Autowired
-//    private PasswordEncoder passwordEncoder;
-
-    @Transactional
-    public User findUserByUserName(String userName) {
-        return userRepository.findUserByUsername(userName);
-    }
-
-    @Transactional
-    public User create(User user) {
-//        user.setPassword(passwordEncoder.encode(user.getPassword()));
-        return userRepository.save(user);
-    }
 
     @Override
     public List<User> getAllUser() {
@@ -43,6 +28,11 @@ public class UserServiceImpl implements UserService {
     @Override
     public void deleteUserById(long id) {
         userRepository.deleteById(id);
+    }
+
+    @Override
+    public User postUser(User user){
+        return userRepository.save(user);
     }
 
     @Override

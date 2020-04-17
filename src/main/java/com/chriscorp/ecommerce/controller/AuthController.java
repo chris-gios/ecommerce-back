@@ -2,23 +2,16 @@ package com.chriscorp.ecommerce.controller;
 
 
 import com.chriscorp.ecommerce.controller.DTO.AuthRequest;
-import com.chriscorp.ecommerce.model.User;
 import com.chriscorp.ecommerce.service.UserService;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
-import org.springframework.transaction.TransactionException;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
 
 @RestController

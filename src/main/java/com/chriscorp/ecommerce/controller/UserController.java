@@ -36,7 +36,7 @@ public class UserController {
     @PostMapping
     @ResponseBody
     private User postUser(@RequestBody User user) throws Exception{
-        return userService.create(user);
+        return userService.postUser(user);
     }
 
     @PostMapping("/{id}")

@@ -25,7 +25,7 @@ public class SubCategory implements Serializable {
     @JsonBackReference
     private Category category;
 
-    @OneToMany
+    @OneToMany(mappedBy = "")
     @JsonIgnore
     private List<Product> product;
 

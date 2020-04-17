@@ -13,10 +13,9 @@ public interface UserService {
 
     void deleteUserById(long id);
 
-    User create(User user) throws Exception;
+    User postUser(User user);
 
     User putUser(User user);
 
-    User findUserByUserName(String username);
 
 }
