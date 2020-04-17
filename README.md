@@ -29,6 +29,10 @@ Run `docker build -t perfiltic/ecommerce .`.
 
 Run `docker run -p 8080:8080 -t perfiltic/ecommerce`.
 
+## Stop
+
+press `Docker rm id` to stop the docker image. 
+
 ## Consume API
 
 # Endpoints
