@@ -2,6 +2,8 @@
 
 This project contains the backend of PerfilTic Dev Test
 
+Video: https://youtu.be/HXhc0xmQ6zQ
+
 ## Development server
 
 Run `mvn clean install && java -jar target/ecommerce-0.0.1-SNAPSHOT.jar` for a dev environment. Navigate to `http://localhost:8080/`.
